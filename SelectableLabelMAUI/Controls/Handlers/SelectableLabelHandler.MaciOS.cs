@@ -41,7 +41,7 @@ public partial class SelectableLabelHandler : ViewHandler<SelectableLabel, UITex
     {
         if (handler.PlatformView != null)
         {
-            handler.PlatformView.TextColor = label.TextColor.ToPlatform();
+            handler.PlatformView.TextColor = label.TextColor?.ToPlatform();
         }
     }
 
@@ -49,7 +49,14 @@ public partial class SelectableLabelHandler : ViewHandler<SelectableLabel, UITex
     {
         if (handler.PlatformView != null)
         {
-            handler.PlatformView.Font = UIFont.FromName(label.FontFamily, label.FontSize);
+            if (string.IsNullOrEmpty(label.FontFamily))
+            {
+                handler.PlatformView.Font = UIFont.SystemFontOfSize((nfloat)label.FontSize);
+            }
+            else
+            {
+                handler.PlatformView.Font = UIFont.FromName(label.FontFamily, (nfloat)label.FontSize);
+            }
         }
     }
 

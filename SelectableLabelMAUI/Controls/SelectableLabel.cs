@@ -14,7 +14,7 @@ public class SelectableLabel : View
         BindableProperty.Create(nameof(FontFamily), typeof(string), typeof(SelectableLabel));
 
     public static readonly BindableProperty FontSizeProperty =
-        BindableProperty.Create(nameof(FontSize), typeof(int), typeof(SelectableLabel), 0);
+        BindableProperty.Create(nameof(FontSize), typeof(float), typeof(SelectableLabel), 0f);
 
     public static readonly BindableProperty HorizontalTextAlignmentProperty =
         BindableProperty.Create(nameof(HorizontalTextAlignment), typeof(TextAlignment), typeof(SelectableLabel), TextAlignment.Start);
@@ -31,9 +31,9 @@ public class SelectableLabel : View
         set => SetValue(TextColorProperty, value);
     }
 
-    public int FontSize
+    public float FontSize
     {
-        get => (int)GetValue(FontSizeProperty);
+        get => (float)GetValue(FontSizeProperty);
         set => SetValue(FontSizeProperty, value);
     }
 

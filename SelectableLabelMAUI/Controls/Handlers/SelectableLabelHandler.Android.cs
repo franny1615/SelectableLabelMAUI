@@ -37,7 +37,7 @@ public partial class SelectableLabelHandler : ViewHandler<SelectableLabel, MauiT
 
     public static void MapTextColor(SelectableLabelHandler handler, SelectableLabel label)
     {
-        if (handler.PlatformView != null)
+        if (handler.PlatformView != null && label.TextColor != null)
         {
             handler.PlatformView.SetTextColor(label.TextColor.ToPlatform());
         }
